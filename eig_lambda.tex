@@ -1,0 +1,60 @@
+\begin{tikzpicture}
+
+\pgfplotsset
+{
+    %scale only axis,
+    %scaled x ticks = base 10:2,
+    %height = 18cm,
+    width = 9cm,
+    xlabel={$\hat{t}$},
+    %xmin = 5, xmax = 46,
+    legend style = 
+    {
+        at = {(0.05, 0.70)},
+        anchor = north west,
+        nodes={scale=1, transform shape}
+    },
+    %cycle list name = color,
+    grid style = dashed,
+    ymajorgrids = true,
+    minor x tick num = 4,
+    %minor y tick num = 4,
+    clip mode = individual
+}
+
+%\pgfplotstableread{eig_lambda.out}\infile
+
+\begin{semilogyaxis} 
+[
+    ylabel={$\max \abs*{\lambda}$},
+    %ymin = -1.5, ymax = 1.5
+]
+
+\addplot
+    [
+        mark = asterisk,
+        color = orange,
+        only marks
+    ]
+    gnuplot [raw gnuplot] {                             plot "eig_lambda.out" using 1:3;
+    };
+    %table [x = t, y = ana] {\infile};
+\addlegendentry{Analytical}
+
+\addplot
+    [
+        mark = asterisk,
+        color = blue,
+        only marks
+    ]
+    gnuplot [raw gnuplot] {                             plot "eig_lambda.out" using 1:2;
+    };
+    %table [x = t, y = l2] {\infile};
+\addlegendentry{\textit{DOPRI5}}
+    
+    
+
+
+\end{semilogyaxis}
+
+\end{tikzpicture}

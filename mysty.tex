@@ -1,0 +1,257 @@
+%------------------------------
+% My latex packages
+% Author : Baptiste Jimmy Frei
+% 2016, EPFL
+%-------------------------------
+%\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+%\ProvidesPackage{mysty}[2016/10/16 My Custom Package]
+%
+%------------personal command -----------
+\newcommand{\grad}{\nabla}
+\renewcommand{\vec}[1]{\bm{#1}}
+
+\newcommand{\gradperp}{\nabla_\perp}
+\newcommand{\gradpara}{\nabla_\parallel}
+\newcommand{\Laplperp}{\nabla^2_\perp}
+\newcommand{\Lapl}{\nabla^2}
+\renewcommand{\div}{\nabla \cdot}
+\newcommand{\rot}{\nabla \times}
+\newcommand{\E}{\vec{E}}
+\newcommand{\B}{\vec{B}}
+\renewcommand{\j}{J}
+\renewcommand{\r}{\vec{r}}
+\newcommand{\x}{\bm{x}}
+\newcommand{\X}{\bm{X}}
+\newcommand{\vi}{\bm{v}}
+%\newcommand{\p}{\bm{p}}
+\newcommand{\q}{\bm{q}}
+\newcommand{\dotq}{\dot{\bm q}}
+\newcommand{\dotp}{\dot{\bm p}}
+\newcommand{\dx}{\bm{\dot{x}}}
+\newcommand{\y}{\bm{y}}
+\newcommand{\z}{\bm{z}}
+\newcommand{\A}{\bm{A}}
+\newcommand{\e}{\bm{e}}
+\newcommand{\R}{\bm{R}}
+\newcommand{\U}{\bm{U}}
+\renewcommand{\e}{\bm{e}}
+\renewcommand{\k}{\bm k}
+\renewcommand{\c}{\bm{c}}
+\renewcommand{\a}{\bm{a}}
+\newcommand{\vomega}{\vec{\omega}}
+\renewcommand{\b}{\vec{b}}
+\newcommand{\bgamma}{\bar{\gamma}}
+\newcommand{\rhoa}{\bm{\rho}_a}
+\newcommand{\gyrhoa}{\overline{\bm{\rho}}_a}
+
+% Fluctuations fields
+\newcommand{\dAgc}{\delta \A }
+\newcommand{\dApara}{\delta A_\parallel}
+\newcommand{\dAgcperp}{\delta \A_{gc,\perp} }
+\newcommand{\dAgcpara}{\delta A_{gc,\parallel} }
+\newcommand{\dphigc}{\delta \phi}
+\newcommand{\dphi}{\delta \phi}
+\newcommand{\kperp}{\bm{k}_{\perp}}
+
+
+% Mathematical operators : 
+\newcommand{\px}[1]{\frac{ \partial #1}{\partial x}}
+\newcommand{\py}[1]{\frac{ \partial #1}{\partial y}}
+\newcommand{\pr}[1]{\frac{ \partial #1}{\partial R}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\gyaver}[1]{\left<  #1 \right>_{\R}}
+\newcommand{\Poissonbracket}[2]{\left\{ #1, #2\right\}}
+\newcommand{\pz}[1]{\frac{ \partial #1}{\partial z}}
+\newcommand{\corr}[1]{{\color{red}  #1 }}
+\newcommand{\dt}[1]{\frac{d #1}{d t}}
+\newcommand{\D}{\overline{\mathcal{D}} \circ}      % Differential operator
+
+% Special functions
+\newcommand{\bessel}[1]{\mathcal{J}_0\left( #1\right)}
+\newcommand{\laguerre}[2]{L_{#1} \left( #2\right)}
+\newcommand{\kernel}[1]{\mathcal{K}_{#1}}
+\newcommand{\hermite}[2]{H_{#1} \left( #2\right)}
+
+% Guiding-centre operators
+\newcommand{\ptheta}{\frac{ \partial }{\partial \theta}}
+\newcommand{\ppparallel}{\frac{ \partial }{\partial p_{\parallel}}}
+\newcommand{\pmu}{\frac{ \partial }{\partial \mu}}
+\newcommand{\pgamma}[1]{\frac{ \partial #1}{\partial \gamma}}
+\newcommand{\gammagc}{\overline{\Gamma}_{gc}}
+\newcommand{\pvparallel}{\frac{\partial }{ \partial v_{\parallel}}}
+\newcommand{\pt}{\frac{\partial}{\partial t}}
+
+% Gyro-centre operators
+\newcommand{\gyptheta}{\frac{ \partial }{\partial \overline{\theta}}}
+\newcommand{\gyppparallel}{\frac{ \partial }{\partial \overline{p}_{\parallel}}}
+\newcommand{\gypvparallel}{\frac{ \partial }{\partial \overline{v}_{\parallel}}}
+\newcommand{\gypmu}{\frac{ \partial }{\partial \overline{\mu}}}
+\newcommand{\gypgamma}[1]{\frac{ \partial #1}{\partial \overline{\gamma}}}
+\newcommand{\gygrad}{\overline{\grad}}
+\newcommand{\gammagy}{\overline{\Gamma}_{gy}}
+\newcommand{\curvature}{\bm{\kappa}}
+
+% Gyrocentre coordinates 
+\newcommand{\gyR}{\overline{\R}}
+\newcommand{\gymu}{\overline{\mu}}
+\newcommand{\gytheta}{\overline{\theta}}
+\newcommand{\gypparallel}{\overline{p}_{\parallel}}
+\newcommand{\gyvparallel}{\overline{v}_{\parallel}}
+\newcommand{\gyvi}{\overline{\vi}}
+
+% Velocity-space coordinates
+\newcommand{\sparallel}{s_{\parallel a}}
+\newcommand{\sperp}{s_{\perp a}}
+\newcommand{\uparallel}{u_{\parallel a}}
+\newcommand{\vparallel}{v_{\parallel}}
+\newcommand{\vperp}{v_{\perp}}
+
+% Fluid quantities
+\newcommand{\vth}{v_{tha}}
+\newcommand{\vthparallel}{v_{th\parallel a }}
+\newcommand{\vthperp}{v_{th \perp a}}
+\newcommand{\Tperp}{T_{\perp a}}
+\newcommand{\Tparallel}{T_{ \parallel a }}
+\newcommand{\Pperp}{P_{\perp a}}
+\newcommand{\Pparallel}{P_{ \parallel a }}
+\newcommand{\Qparallel}{Q_{\parallel  a}}
+\newcommand{\Qperp}{Q_{\perp a}}
+\newcommand{\gyU}{\overline{\U}}
+\newcommand{\gyuparallel}{\overline{u}_{\parallel a}}
+\newcommand{\gyvthparallel}{\overline{v}_{th \parallel a}}
+\newcommand{\gyTperp}{\overline{T}_{\perp a}}
+\newcommand{\gyTparallel}{\overline{T}_{\parallel a}}
+% Expansion parameters
+\newcommand{\epsilonthperp}{\epsilon_{\perp}^{*}}
+\newcommand{\epsilonperp}{\epsilon_\perp}
+\newcommand{\epsilonnu}{\epsilon_\nu}
+
+% Set of coordinates
+\newcommand{\gccoordinate}{\left( \bm{R}, v_{\parallel}, \mu, \theta, t \right)}
+\newcommand{\gccoordinatewphase}{\left( \R, v_{\parallel}, \mu, t \righ)}
+
+
+% Hermite-Laguerre projector
+\newcommand{\momentstar}[2]{ \norm{#2}^{*#1}_a}
+\newcommand{\momentall}[2]{ \norm{#2}^{(*)#1}_a}
+\newcommand{\moment}[2]{ \norm{#2}^{#1}_a}
+\newcommand{\momente}[2]{ \norm{#2}^{#1}_e}
+\newcommand{\momentM}[2]{ \norm{#2}^{#1}_{aM}}
+\newcommand{\momenta}[1]{\norm{#1}_a}
+\newcommand{\momentastar}[1]{\norm{#1}^*_a}
+\newcommand{\phaseV}{\mathcal{V}}
+\newcommand{\phaseM}{\mathcal{M}}
+\newcommand{\momentstare}[2]{ \norm{#2}^{*,#1}_e}
+\newcommand{\momentstari}[2]{ \norm{#2}^{*,#1}_i}
+
+% Gyro-center densities
+\newcommand{\gyN}{N_a}
+\newcommand{\gyNi}{N_i}
+\newcommand{\gyNe}{N_e}
+
+
+% Text-environement marcos
+\newcommand{\tZ}{$\mathcal{Z}$ }
+\newcommand{\tbZ}{$\bar{\mathcal{Z}}$ }
+
+% math-environement macros
+\newcommand{\Z}{\mathcal{Z}}                                % Old phase-space coordinates 
+\newcommand{\bZ}{\overline{\mathcal{Z}}}                    % New phase-space coordinates
+\newcommand{\Zgc}{\bm{\mathcal{Z}}}                  % Guiding-centre coordinate
+\newcommand{\Zgy}{\overline{\bm{\mathcal{Z}}}}       % Gycentre coordinates
+\newcommand{\epsilondelta}{\epsilon_{\delta}}               % Amplitude ordering parameter
+
+
+\newcommand{\T}{\mathcal{T}}         % Coordinate transformation symbol
+\newcommand{\Tgc}{\mathcal{T}_{\text{\epsilon,\text{gc}}} }        % Non-perturbative pull-back operator
+\newcommand{\Tgy}{\mathcal{T}_{\epsilon,\text{gy}}} % Perturbatibe pull-back operator 
+
+\renewcommand{\L}{\mathcal{L}}       % Lie derivative
+\newcommand{\M}{\mathcal{M}}         % Phase-space symbol
+\newcommand{\Tpb}{\mathcal{T}^+_\epsilon} % Pull-back operator
+\newcommand{\Tpf}{\mathcal{T}^-_\epsilon} % Push-forward operator
+\newcommand{\F}{\mathcal{F}}         % Phase-space function w.r.t to old coordinates 
+\newcommand{\bF}{\bar{\mathcal{F}} } % Phase-space function w.r.t to new coordinates 
+\renewcommand{\L}{\mathcal{L}}         % Lagriangian
+\renewcommand{\H}{\mathcal{H}}         % Hamiltonian 
+\newcommand{\Hgy}{\overline{\mathcal{H}}_{gy}} % Gyro-centre Hamiltonian
+
+% Distribution function 
+% WITHOUT OVERLINE NOTATION
+\newcommand{\gyFa}{F_a}   % No overline notation
+\newcommand{\overlinegyFa}{\overline{F}_a} 
+\newcommand{\overlinegyFaZero}{\overline{F}_{a0}}
+\newcommand{\overlinegyFaone}{\overline{F}_{a1}}
+\newcommand{\tildegyFa}{\widetilde{F_a}}
+\newcommand{\tildegyFao}{\widetilde{F_{a0}}}
+\newcommand{\gyFao}{F_{a0}} 
+\newcommand{ \gyFaone}{F_{a1}}% Gyrokinetic background
+\newcommand{\gyFaM}{F_{aM}} 
+
+\newcommand{\gyFb}{F_b}       % Gyrokinetic b
+\newcommand{\gyFe}{F_e} 
+\newcommand{\gyFi}{F_i} 
+\newcommand{\tildegyFe}{\widetilde{F_e}} 
+\newcommand{\tildegyFi}{\widetilde{F_i}}
+
+
+% WITH OVERLINE
+%\newcommand{\tildegyFa}{\widetilde{\overline{F}_a}}
+%\newcommand{\tildegyFao}{\widetilde{\overline{F}_{a0}}}
+%\newcommand{\gyFao}{\overline{F}_{a0}} 
+%\newcommand{ \gyFaone}{\overline{F}_{a1}}% Gyrokinetic background
+%\newcommand{\gyFaM}{\overline{F}_{aM}} 
+
+%\newcommand{\gyFb}{\overline{F}_b}       % Gyrokinetic b
+%\newcommand{\gyFe}{\overline{F}_e} 
+%\newcommand{\gyFi}{\overline{F}_i} 
+%\newcommand{\gyFb}{\overline{F}_b}       % Gyrokinetic b
+%\newcommand{\tildegyFe}{\widetilde{\overline{F}_e}} 
+%\newcommand{\tildegyFi}{\widetilde{\overline{F}_i}}
+% Collision operator a 
+\newcommand{\gycoll}{\overline{\mathcal{C}}_a}
+
+% Special operator
+\newcommand{\kernelcompo}[2]{\left[ #2\right]_{\grad_\perp,#1}}
+
+% Generating function
+\newcommand{\G}{\bm{G}}
+\newcommand{\GR}{\bm{G}^{\R}}
+\newcommand{\Gtheta}{G^{\theta}}
+\newcommand{\Gmu}{G^{\mu}}
+\newcommand{\Gparallel}{G^{\parallel}}
+\newcommand{\ovlgamma}{\overline{\Gamma}}
+
+\newcommand{\dxi}{\text{d} x_I }     % Define linear maps.
+\renewcommand{\d}{\text{d}}            % Differential operators
+
+% Some vecotrs notations
+\renewcommand{\u}{\vec{u}}
+\newcommand{\Fs}{\vec{F}^{[s]}}
+\newcommand{\Fns}{\vec{F}^{[ns]}}
+\renewcommand{\kperp}{\bm{k}_{\perp}}
+\newcommand{\cperp}{\c'_{\perp}}
+
+% Derivative w.r.t shifted velocities
+\newcommand{\pwalpha}{\frac{\partial}{\partial w_\alpha}}
+\newcommand{\pwbeta}{\frac{\partial}{\partial w_\beta}}
+\newcommand{\pwgamma}{\frac{\partial}{\partial w_\gamma}}
+
+\renewcommand{\U}{\bm{U}}
+\newcommand{\erf}{\text{erf}}
+\newcommand{\w}{\bm{w}}
+
+% Collision command
+\newcommand{\gycol}{\overline{C}}
+
+% Some utilities 
+\newcommand{\red}[1]{{\color{red}  #1 }}
+
+% Nomenclature cmd shortcut
+\newcommand{\nm}[2]{\nomenclature{#1}{#2}}
+
+%--------my include figure------
+% new command figure
+
+ %---------------------------------------
+    

@@ -1,0 +1,66 @@
+\begin{tikzpicture}
+
+\pgfplotsset
+{
+    %scale only axis,
+    %scaled x ticks = base 10:2,
+    %height = 18cm,
+    width = 9cm,
+    xlabel={$\hat{t}$},
+    %xmin = 5, xmax = 46,
+    legend style = 
+    {
+        at = {(0.95, 0.70)},
+        anchor = north east,
+        nodes={scale=1, transform shape}
+    },
+    %cycle list name = color,
+    grid style = dashed,
+    ymajorgrids = true,
+    minor x tick num = 4,
+    %minor y tick num = 4,
+    clip mode = individual
+}
+
+%\pgfplotstableread{dopri5-estim.out}\infile
+
+\begin{semilogyaxis} 
+[
+    ylabel={$\norm{\hat{\phi}}_1$},
+    %ymin = -1.5, ymax = 1.5
+]
+
+\addplot
+    [
+        mark = none,
+        color = orange
+    ]
+    gnuplot [raw gnuplot] {                             plot "plot_phi.dat" using 1:4;
+    };
+    %table [x = t, y = l2] {\infile};
+\addlegendentry{$\delta = 10^{-1}$}
+
+\addplot
+    [
+        mark = none,
+        color = blue
+    ]
+    gnuplot [raw gnuplot] {                             plot "plot_phi.dat" using 1:3;
+    };
+    %table [x = t, y = l2] {\infile};
+\addlegendentry{$\delta = 10^{-2}$}
+
+\addplot
+    [
+        mark = none,
+        color = red
+    ]
+    gnuplot [raw gnuplot] {                             plot "plot_phi.dat" using 1:2;
+    };
+    %table [x = t, y = l2] {\infile};
+\addlegendentry{$\delta = 10^{-3}$}
+    
+
+\end{semilogyaxis}
+
+\end{tikzpicture}

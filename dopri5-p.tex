@@ -1,0 +1,59 @@
+\begin{tikzpicture}
+
+\pgfplotsset
+{
+    %scale only axis,
+    %scaled x ticks = base 10:2,
+    %height = 18cm,
+    width = 9cm,
+    xlabel={Number of simulated moments $M$},
+    %xmin = 5, xmax = 46,
+    legend style = 
+    {
+        at = {(0.95, 0.1)},
+        anchor = south east,
+        nodes={scale=1, transform shape}
+    },
+    %cycle list name = color,
+    grid style = dashed,
+    ymajorgrids = true,
+    minor x tick num = 4,
+    %minor y tick num = 4,
+    clip mode = individual
+}
+
+\pgfplotstableread{dopri5-p.out}\infile
+
+\begin{loglogaxis} 
+[
+    ylabel={$\max \abs*{\lambda}$},
+    log ticks with fixed point
+    %ymin = -1.5, ymax = 1.5
+]
+
+\addplot
+    [
+        mark = *,
+        color = cyan,
+        only marks,
+        error bars/.cd,
+        y dir=both,
+        y explicit
+    ]
+    table [x = p, y = eig, y error = err] {\infile};
+\addlegendentry{Numerical data}
+
+\addplot
+    [
+        mark = none,
+        color = blue,
+        domain = 15.0:90.0,
+        samples = 50
+    ]
+    {14.4762 * x^0.54991};
+\addlegendentry{$14.47 \cdot M^{0.55 \pm 0.1}$}
+
+
+\end{loglogaxis}
+
+\end{tikzpicture}

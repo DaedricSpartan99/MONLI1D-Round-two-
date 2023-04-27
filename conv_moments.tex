@@ -1,0 +1,59 @@
+\begin{tikzpicture}
+
+\pgfplotsset
+{
+    %scale only axis,
+    %scaled x ticks = base 10:2,
+    %height = 18cm,
+    width = 9cm,
+    xlabel={$\frac{1}{M}$},
+    %xmin = 5, xmax = 46,
+    legend style = 
+    {
+        at = {(0.05, 0.50)},
+        anchor = north west,
+        nodes={scale=1, transform shape}
+    },
+    %cycle list name = color,
+    grid style = dashed,
+    ymajorgrids = true,
+    minor x tick num = 4,
+    %minor y tick num = 4,
+    clip mode = individual
+}
+
+\pgfplotstableread{dispersion-mom.dat}\infile
+
+\begin{axis} 
+[
+    ylabel={$\gamma$},
+    %ymin = -1.5, ymax = 1.5
+]
+
+\addplot
+    [
+        smooth,
+        color = blue,
+        mark = *,
+        mark options = {
+            color = cyan
+        }
+    ]
+    table [x = p, y = damp] {\infile};
+    \addlegendentry{$\gamma$ measured}
+    %gnuplot [raw gnuplot] {                             plot "dispertion-mom.dat" using 1:2;
+    %};
+    
+\addplot
+    [
+        color = violet,
+        mark = none,
+        domain = 0:0.05,
+        samples = 10
+    ]
+    {-0.0351944697912};
+    \addlegendentry{$\gamma$ reference}
+
+\end{axis}
+
+\end{tikzpicture}
